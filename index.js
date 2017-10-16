@@ -191,7 +191,7 @@ function copyArticles() {
                 alcohol   : article.alcohol,
                 created_at: article.createdAt,
                 updated_at: article.editedAt,
-                deleted_at: article.isRemoved ? new Date() : null,
+                deleted_at: article.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : article.id,
                 name      : article.name,
                 vat       : article.vat,
@@ -209,7 +209,7 @@ function copyCategories() {
             return {
                 created_at: category.createdAt,
                 updated_at: category.editedAt,
-                deleted_at: category.isRemoved ? new Date() : null,
+                deleted_at: category.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : category.id,
                 name      : category.name,
                 priority  : category.priority
@@ -226,7 +226,7 @@ function copyDevices() {
             return {
                 created_at      : device.createdAt,
                 updated_at      : device.editedAt,
-                deleted_at      : device.isRemoved ? new Date() : null,
+                deleted_at      : device.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id              : device.id,
                 name            : device.name,
                 fingerprint     : device.fingerprint,
@@ -247,7 +247,7 @@ function copyWikets() {
             return {
                 created_at: devicePoint.createdAt,
                 updated_at: devicePoint.editedAt,
-                deleted_at: devicePoint.isRemoved ? new Date() : null,
+                deleted_at: devicePoint.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : uuid.v4(),
                 device_id : devicePoint.Device,
                 point_id  : devicePoint.Point,
@@ -265,7 +265,7 @@ function copyEvents() {
             return {
                 created_at         : event.createdAt,
                 updated_at         : event.editedAt,
-                deleted_at         : event.isRemoved ? new Date() : null,
+                deleted_at         : event.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id                 : event.id,
                 name               : event.name,
                 minReload          : event.config.minReload,
@@ -290,7 +290,7 @@ function copyFundations() {
             return {
                 created_at: fundation.createdAt,
                 updated_at: fundation.editedAt,
-                deleted_at: fundation.isRemoved ? new Date() : null,
+                deleted_at: fundation.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : fundation.id,
                 name      : fundation.name
             };
@@ -306,7 +306,7 @@ function copyGroups() {
             return {
                 created_at: group.createdAt,
                 updated_at: group.editedAt,
-                deleted_at: group.isRemoved ? new Date() : null,
+                deleted_at: group.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : group.id,
                 name      : group.name
             };
@@ -322,7 +322,7 @@ function copyMemberships() {
             return {
                 created_at: groupUser.createdAt,
                 updated_at: groupUser.editedAt,
-                deleted_at: groupUser.isRemoved ? new Date() : null,
+                deleted_at: groupUser.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : uuid.v4(),
                 user_id   : groupUser.User,
                 group_id  : groupUser.Group,
@@ -337,6 +337,7 @@ function copyMemberships() {
 function copyMeansoflogins() {
     const predicate = r.row('type').eq('etuId')
                     .or(r.row('type').eq('etuMail'))
+                    .or(r.row('type').eq('etuNumber'))
                     .and(r.row('data').ne(null))
                     .and(r.row('data').ne('null'));
 
@@ -345,7 +346,7 @@ function copyMeansoflogins() {
             return {
                 created_at: meanOfLogin.createdAt,
                 updated_at: meanOfLogin.editedAt,
-                deleted_at: meanOfLogin.isRemoved ? new Date() : null,
+                deleted_at: meanOfLogin.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : meanOfLogin.id,
                 user_id   : meanOfLogin.User_id,
                 blocked   : meanOfLogin.blocked,
@@ -364,7 +365,7 @@ function copyPeriods() {
             return {
                 created_at: period.createdAt,
                 updated_at: period.editedAt,
-                deleted_at: period.isRemoved ? new Date() : null,
+                deleted_at: period.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : period.id,
                 name      : period.name,
                 start     : period.start,
@@ -383,7 +384,7 @@ function copyPoints() {
             return {
                 created_at: point.createdAt,
                 updated_at: point.editedAt,
-                deleted_at: point.isRemoved ? new Date() : null,
+                deleted_at: point.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : point.id,
                 name      : point.name
             };
@@ -399,7 +400,7 @@ function copyPrices() {
             return {
                 created_at  : price.createdAt,
                 updated_at  : price.editedAt,
-                deleted_at  : price.isRemoved ? new Date() : null,
+                deleted_at  : price.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id          : price.id,
                 amount      : price.amount,
                 article_id  : null,
@@ -421,7 +422,7 @@ function copyPromotions() {
             return {
                 created_at: promotion.createdAt,
                 updated_at: promotion.editedAt,
-                deleted_at: promotion.isRemoved ? new Date() : null,
+                deleted_at: promotion.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : promotion.id,
                 name      : promotion.name
             };
@@ -437,7 +438,7 @@ function copyPurchases() {
             return {
                 created_at: purchase.createdAt,
                 updated_at: purchase.editedAt,
-                deleted_at: purchase.isRemoved ? new Date() : null,
+                deleted_at: purchase.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : purchase.id,
                 vat       : purchase.vat,
                 alcohol   : purchase.alcohol,
@@ -459,7 +460,7 @@ function copyRefunds() {
             return {
                 created_at: refund.createdAt,
                 updated_at: refund.editedAt,
-                deleted_at: refund.isRemoved ? new Date() : null,
+                deleted_at: refund.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : refund.id,
                 amount    : refund.amount,
                 type      : refund.type,
@@ -479,7 +480,7 @@ function copyReloads() {
             return {
                 created_at: reload.createdAt,
                 updated_at: reload.editedAt,
-                deleted_at: reload.isRemoved ? new Date() : null,
+                deleted_at: reload.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : reload.id,
                 credit    : reload.credit,
                 type      : reload.type,
@@ -500,7 +501,7 @@ function copyRights() {
             return {
                 created_at: right.createdAt,
                 updated_at: right.editedAt,
-                deleted_at: right.isRemoved ? new Date() : null,
+                deleted_at: right.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : right.id,
                 name      : right.name,
                 point_id  : right.Point_id,
@@ -519,7 +520,7 @@ function copySets() {
             return {
                 created_at: set.createdAt,
                 updated_at: set.editedAt,
-                deleted_at: set.isRemoved ? new Date() : null,
+                deleted_at: set.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id        : set.id
             };
         });
@@ -534,7 +535,7 @@ function copyTransfers() {
             return {
                 created_at : transfer.createdAt,
                 updated_at : transfer.editedAt,
-                deleted_at : transfer.isRemoved ? new Date() : null,
+                deleted_at : transfer.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id         : transfer.id,
                 amount     : transfer.amount,
                 sender_id  : transfer.Sender_id,
@@ -556,7 +557,7 @@ function copyUsers() {
             return {
                 created_at : user.createdAt,
                 updated_at : user.editedAt,
-                deleted_at : user.isRemoved ? new Date() : null,
+                deleted_at : user.isRemoved ? new Date(+(new Date()) - Math.floor(Math.random()*1000)) : null,
                 id         : user.id,
                 firstname  : user.firstname,
                 lastname   : user.lastname,
@@ -578,8 +579,8 @@ function copyArticleCategories() {
     return r.table('Article_Category').run().then((articleCategories) => {
         articleCategories = articleCategories.map((articleCategory) => {
             return {
-                created_at: new Date(),
-                updated_at: new Date(),
+                created_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
+                updated_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
                 deleted_at: null,
                 article_id: articleCategory.Article,
                 category_id: articleCategory.Category
@@ -608,20 +609,20 @@ function copyArticlePromotions() {
 
         return knex('sets').insert({
                 id,
-                created_at: new Date(),
-                updated_at: new Date(),
+                created_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
+                updated_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
                 deleted_at: null
             })
             .then(() => knex('articles_sets').insert({
-                created_at: new Date(),
-                updated_at: new Date(),
+                created_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
+                updated_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
                 deleted_at: null,
                 article_id: articlePromotions.Article,
                 set_id: id
             }))
             .then(() => knex('promotions_sets').insert({
-                created_at: new Date(),
-                updated_at: new Date(),
+                created_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
+                updated_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
                 deleted_at: null,
                 promotion_id: articlePromotions.Promotion,
                 set_id: id
@@ -633,8 +634,8 @@ function copyArticlePurchases() {
     return r.table('Article_Purchase').run().then((articlePurchases) => {
         articlePurchases = articlePurchases.map((articlePurchase) => {
             return {
-                created_at: new Date(),
-                updated_at: new Date(),
+                created_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
+                updated_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
                 deleted_at: null,
                 article_id: articlePurchase.Article,
                 purchase_id: articlePurchase.Purchase
@@ -649,8 +650,8 @@ function copyArticleSets() {
     return r.table('Article_Set').run().then((articleSets) => {
         articleSets = articleSets.map((articleSet) => {
             return {
-                created_at: new Date(),
-                updated_at: new Date(),
+                created_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
+                updated_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
                 deleted_at: null,
                 article_id: articleSet.Article,
                 set_id: articleSet.Set
@@ -665,8 +666,8 @@ function copyCategoryPoints() {
     return r.table('Category_Point').run().then((categoryPoints) => {
         categoryPoints = categoryPoints.map((categoryPoint) => {
             return {
-                created_at: new Date(),
-                updated_at: new Date(),
+                created_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
+                updated_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
                 deleted_at: null,
                 category_id: categoryPoint.Category,
                 point_id: categoryPoint.Point
@@ -693,8 +694,8 @@ function copyPromotionSets() {
     return r.table('Promotion_Set').run().then((promotionSets) => {
         promotionSets = promotionSets.map((promotionSet) => {
             return {
-                created_at: new Date(),
-                updated_at: new Date(),
+                created_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
+                updated_at: new Date(+(new Date()) - Math.floor(Math.random()*1000)),
                 deleted_at: null,
                 promotion_id: promotionSet.Promotion,
                 set_id: promotionSet.Set

@@ -1,4 +1,4 @@
-exports.up = function(knex) {
+exports.up = function (knex) {
     return knex.schema
         .createTable('articles', (t) => {
             t.uuid('id').primary();
@@ -9,10 +9,12 @@ exports.up = function(knex) {
             t.integer('alcohol').notNullable().unsigned().defaultTo(0);
             t.integer('stock').notNullable().defaultTo(0);
             t.integer('vat').notNullable().defaultTo(0);
+
+            t.unique(['name', 'deleted_at']);
         });
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
     return knex.schema
         .dropTable('articles');
 };

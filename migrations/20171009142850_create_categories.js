@@ -1,4 +1,4 @@
-exports.up = function(knex) {
+exports.up = function (knex) {
     return knex.schema
         .createTable('categories', (t) => {
             t.uuid('id').primary();
@@ -7,10 +7,12 @@ exports.up = function(knex) {
 
             t.string('name').notNullable();
             t.integer('priority').notNullable().defaultTo(0);
+
+            t.unique(['name', 'deleted_at']);
         });
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
     return knex.schema
         .dropTable('categories');
 };

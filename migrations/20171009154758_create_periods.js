@@ -1,4 +1,4 @@
-exports.up = function(knex) {
+exports.up = function (knex) {
     return knex.schema
         .createTable('periods', (t) => {
             t.uuid('id').primary();
@@ -8,10 +8,12 @@ exports.up = function(knex) {
             t.string('name').notNullable();
             t.dateTime('start').notNullable();
             t.dateTime('end').notNullable();
+
+            t.unique(['name', 'deleted_at']);
         });
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
     return knex.schema
         .dropTable('periods');
 };

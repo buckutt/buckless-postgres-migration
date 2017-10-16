@@ -67,7 +67,7 @@ exports.up = function(knex) {
         })
         .table('articles_purchases', (t) => {
             t.foreign('article_id').references('articles.id');
-            t.foreign('purchases_id').references('purchases.id');
+            t.foreign('purchase_id').references('purchases.id');
         })
         .table('categories_points', (t) => {
             t.foreign('category_id').references('categories.id');

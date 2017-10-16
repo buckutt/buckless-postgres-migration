@@ -9,9 +9,9 @@
         "client": "pg",
         "connection": {
             "host"    : "127.0.0.1",
-            "database": "migration",
-            "user"    : "",
-            "password": ""
+            "database": "buckless",
+            "user"    : "buckless",
+            "password": "buckless"
         },
         "pool": {
             "min": 1,

@@ -1,0 +1,17 @@
+{
+  "name": "buckutt-migration",
+  "version": "1.0.0",
+  "description": "Buckutt RethinkDB -> Buckutt Postgresql",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "knex": "^0.13.0",
+    "lodash": "^4.17.4",
+    "pg": "^7.3.0",
+    "rethinkdbdash": "^2.3.31",
+    "uuid": "^3.1.0"
+  }
+}

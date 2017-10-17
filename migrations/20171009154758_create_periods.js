@@ -4,12 +4,13 @@ exports.up = function (knex) {
             t.uuid('id').primary();
             t.timestamps(false, true);
             t.dateTime('deleted_at').nullable();
+            t.boolean('active').nullable();
 
             t.string('name').notNullable();
             t.dateTime('start').notNullable();
             t.dateTime('end').notNullable();
 
-            t.unique(['name', 'deleted_at']);
+            t.unique(['name', 'active']);
         });
 };
 

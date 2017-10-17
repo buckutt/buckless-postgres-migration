@@ -4,6 +4,7 @@ exports.up = function (knex) {
             t.uuid('id').primary();
             t.timestamps(false, true);
             t.dateTime('deleted_at').nullable();
+            t.boolean('active').nullable();
         });
 };
 

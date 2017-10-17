@@ -4,6 +4,7 @@ exports.up = function(knex) {
             t.increments();
             t.timestamps(false, true);
             t.dateTime('deleted_at').nullable();
+            t.boolean('active').nullable();
 
             t.uuid('article_id');
             t.uuid('category_id');
@@ -12,6 +13,7 @@ exports.up = function(knex) {
             t.increments();
             t.timestamps(false, true);
             t.dateTime('deleted_at').nullable();
+            t.boolean('active').nullable();
 
             t.uuid('article_id');
             t.uuid('set_id');
@@ -20,6 +22,7 @@ exports.up = function(knex) {
             t.increments();
             t.timestamps(false, true);
             t.dateTime('deleted_at').nullable();
+            t.boolean('active').nullable();
             t.integer('count').defaultTo(1);
 
             t.uuid('article_id');
@@ -29,6 +32,7 @@ exports.up = function(knex) {
             t.increments();
             t.timestamps(false, true);
             t.dateTime('deleted_at').nullable();
+            t.boolean('active').nullable();
 
             t.uuid('category_id');
             t.uuid('point_id');
@@ -37,6 +41,7 @@ exports.up = function(knex) {
             t.increments();
             t.timestamps(false, true);
             t.dateTime('deleted_at').nullable();
+            t.boolean('active').nullable();
 
             t.uuid('promotion_id');
             t.uuid('set_id');
